@@ -1,12 +1,12 @@
 # dashboard_generator.py
 
 # Input File selected from User: Selections include - sales-201710.csv
-# file_name = input("Please input csv file name: ")
+file_name = input("Please input csv file name: ")
 
-# print(type(file_name))
-# if file_name != "sales-201710.csv":
-#     print("Sorry, no file exists")
-#     exit()
+if file_name != "sales-201710.csv":
+    if file_name != "sales-201803.csv":
+     print("Sorry, no file exists")
+     exit()
 
 
 import os
@@ -19,7 +19,7 @@ import numpy as np
 def to_usd(my_price):
     return "${0:,.2f}".format(my_price)  # > $12,000.71
 
-csv_filename = "sales-201803.csv"
+csv_filename = file_name
 csv_filepath = os.path.join(os.path.dirname(__file__), "data", csv_filename)
 csv_data = pandas.read_csv(csv_filepath)
 
@@ -49,14 +49,16 @@ for x in top_sellers:
     monthly_sales.append(x["monthly_sales"])
 
 
-plt.barh(row_name,monthly_sales, align='right')
+
+plt.barh(row_name,monthly_sales, align='center')
 plt.yticks(row_name, row_name, fontsize=8)
 plt.ylabel('Products')
 plt.xlabel('Sales (USD)')
 plt.title('Monthly Sales by Product')
 
-print("-----------------------")
-print("MONTH: March 2018")
+
+# print("-----------------------")
+# print("MONTH: March 2018")
 
 print("-----------------------")
 print("CRUNCHING THE DATA...")
