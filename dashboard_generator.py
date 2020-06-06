@@ -3,6 +3,9 @@
 
 import os
 import pandas
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
 
 # utility function to convert float or integer to usd-formatted string (for printing)
 def to_usd(my_price):
@@ -37,16 +40,14 @@ for x in top_sellers:
     row_name.append(x["name"])
     monthly_sales.append(x["monthly_sales"])
 
-monthly_sales = to_usd(monthly_sales)
+#monthly_sales = to_usd(monthly_sales)
 print(row_name)
 print(monthly_sales)
 
-plt.bar(row_name, monthly_sales, align='center', alpha=0.5)
-plt.xticks(row_name, row_name)
+plt.bar(row_name, monthly_sales, align='center')
+plt.xticks(row_name, row_name, fontsize=5)
 plt.ylabel('Monthly Sales')
 plt.title('Product')
-
-plt.show()
 
 print("-----------------------")
 print("MONTH: March 2018")
@@ -65,3 +66,5 @@ for d in top_sellers:
 
 print("-----------------------")
 print("VISUALIZING THE DATA...")
+
+plt.show()
