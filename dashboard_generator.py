@@ -49,16 +49,14 @@ for x in top_sellers:
     monthly_sales.append(x["monthly_sales"])
 
 
-
 plt.barh(row_name,monthly_sales, align='center')
 plt.yticks(row_name, row_name, fontsize=8)
 plt.ylabel('Products')
 plt.xlabel('Sales (USD)')
-plt.title('Monthly Sales by Product')
+plt.title('Top Selling Products')
 
 
-# print("-----------------------")
-# print("MONTH: March 2018")
+#Printing Information
 
 print("-----------------------")
 print("CRUNCHING THE DATA...")
